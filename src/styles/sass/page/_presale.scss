@@ -1,0 +1,91 @@
+.presale {
+    height: calc(100vh - 200px);
+    display: flex;
+    .btn-buy {
+        padding: 12px 112px;
+        font-size: 30px;
+        font-weight: bold;
+        font-variant: small-caps;
+        border-radius: 0;
+    }
+    .exclusive-label {
+        font-variant: small-caps;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 23px;
+        color: $green;
+        @include mq("phone") {
+            font-size: 24px;
+        }
+    }
+    .ndb-tokens-label {
+        font-size: 48px;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-style: italic;
+        color: white;
+        margin-left: 0px;
+        margin-bottom: 0px;
+        padding: 10px 0px;
+        text-align: center;
+        @include mq("phone") {
+            text-align: left;
+            font-size: 48px;
+            margin-left: 41px;
+        }
+    }
+    .miss-label {
+        color: white;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+        margin-bottom: 23px;
+        letter-spacing: -0.02em;
+        @include mq("phone") {
+            font-weight: 300;
+        }
+    }
+    .tokens-amount {
+        font-size: 64px;
+        line-height: 78px;
+        letter-spacing: 0.03em;
+        font-variant: small-caps;
+        font-weight: bold;
+        color: white;
+        width: 100%;
+        text-align: center;
+        @include mq("phone") {
+            letter-spacing: -0.02em;
+            width: max-content;
+            text-align: left;
+            font-size: 100px;
+            line-height: 122px;
+        }
+    }
+    .next-auction-label {
+        font-variant: small-caps;
+        font-size: 28px;
+        line-height: 28px;
+        color: white;
+        width: max-content;
+        font-weight: bold;
+    }
+    .tokens-left {
+        font-size: 24px;
+        line-height: 29px;
+        font-variant: small-caps;
+        font-weight: 900;
+        color: white;
+        opacity: 0.4;
+        text-align: right;
+        letter-spacing: 0.01em;
+    }
+    
+}
+
+.presale-connected {
+    border: 1px solid #23c865 !important;
+    img {
+        width: 90px;
+    }
+}

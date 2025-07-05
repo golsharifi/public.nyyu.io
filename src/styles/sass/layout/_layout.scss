@@ -1,0 +1,51 @@
+.footer-bar {
+    width: 100%;
+    height: $footerHeight;
+    background: transparent;
+    font-size: 12px;
+    z-index: 1030;
+    @include mq('laptop', max) {
+        font-size: 10px;
+    }
+    @include mq('tablet', max) {
+        height: auto;
+    }
+}
+
+.remain-token__value {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 60px;
+
+    @include mq('phone', max) {
+        width: 80%;
+    }
+
+    .current-value,
+    .end-value {
+        font-weight: bold;
+        font-size: 11px;
+        line-height: 13px;
+        text-transform: uppercase;
+    }
+    .timeframe-bar {
+        background-color: #263a2b;
+        height: 17px;
+        margin-top: 8px;
+        .timeleft {
+            border-radius: 0 8.5px 8.5px 0;
+            position: relative;
+            &__value {
+                position: absolute;
+                bottom: -22px;
+                right: -36px;
+                color: white;
+                font-weight: bold;
+                font-size: 11px;
+                line-height: 13px;
+                white-space: nowrap;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
