@@ -1,0 +1,493 @@
+// Support Modal Styles - Complete and Consistent Design Pattern
+
+// Base support modal class (used by reset modals)
+.support-modal {
+    max-width: 750px;
+    width: 90%;
+    background: #000000;
+    border: 1px solid #333333;
+    border-radius: 0;
+    padding: 0;
+    outline: none;
+    position: relative;
+    margin: 2rem auto;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    @media (max-width: 768px) {
+        width: 95%;
+        margin: 1rem auto;
+        max-height: 95vh;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 2rem 1rem 2rem;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: white;
+        position: relative;
+
+        @media (max-width: 768px) {
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+        }
+
+        // Close button styling
+        div[role="button"] {
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            padding: 0.5rem;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            img {
+                width: 14px;
+                height: 14px;
+                filter: invert(1); // Make close icon white
+            }
+        }
+    }
+
+    &__footer {
+        align-items: center;
+        padding: 1rem 2rem 2rem 2rem;
+
+        @media (max-width: 768px) {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+        }
+
+        button {
+            display: block;
+        }
+
+        .btn-cancel {
+            margin-top: 11px;
+            background-color: unset;
+            border: unset;
+            font-size: 12px;
+            line-height: 23px;
+            color: white;
+        }
+
+        .btn-primary {
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+            padding: 15px 95px;
+        }
+    }
+
+    .form {
+        padding: 18px 51px;
+        
+        @media (max-width: 768px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    // Content area for reset modals
+    .my-5 {
+        padding: 1rem 2rem 2rem 2rem;
+
+        @media (max-width: 768px) {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+        }
+    }
+}
+
+// Support Request Modal Styles - Matching Existing Design Pattern
+.modal-content-support-request {
+    background: #000000;
+    border: 1px solid #333333;
+    border-radius: 0; // Your modals appear to have sharp corners
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 2rem auto;
+    padding: 0;
+    outline: none;
+    position: relative;
+
+    @media (max-width: 768px) {
+        width: 95%;
+        margin: 1rem auto;
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        padding: 2rem 2rem 1rem 2rem;
+        position: relative;
+        
+        @media (max-width: 768px) {
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.875rem; // 30px - matching your modal title size
+            font-weight: 400; // Normal weight like in your image
+            margin: 0;
+            color: #ffffff;
+            text-align: center;
+            line-height: 1.2;
+            width: 100%; // Ensure full width for centering
+            
+            @media (max-width: 768px) {
+                font-size: 1.5rem;
+            }
+        }
+
+        .btn-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            z-index: 10;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+                filter: invert(1); // Make close icon white
+            }
+        }
+    }
+
+    .modal-body {
+        padding: 1rem 2rem 2rem 2rem;
+        
+        @media (max-width: 768px) {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+        }
+
+        // Subtitle/description text
+        .modal-description {
+            color: #ffffff;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        // Form field labels - matching your style
+        .form-label {
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: #000000;
+            font-size: 1rem;
+            display: block;
+
+            .text-danger {
+                margin-left: 0.25rem;
+                color: #ff4444;
+            }
+        }
+
+        // Form controls - matching your input style
+        .form-control,
+        .form-select {
+            background-color: #ffffff; // White background like your inputs
+            border: 1px solid #cccccc;
+            color: #000000; // Black text
+            border-radius: 0; // Sharp corners
+            padding: 0.875rem 1rem; // Slightly larger padding
+            font-size: 1rem;
+            width: 100%;
+            margin-bottom: 1.5rem;
+
+            &:focus {
+                background-color: #ffffff;
+                border-color: #666666;
+                box-shadow: none; // Remove default focus glow
+                color: #000000;
+                outline: none;
+            }
+
+            &::placeholder {
+                color: #999999;
+                font-style: italic;
+            }
+
+            &:disabled {
+                background-color: #f5f5f5;
+                border-color: #cccccc;
+                color: #666666;
+                cursor: not-allowed;
+            }
+
+            &.is-invalid {
+                border-color: #ff4444;
+            }
+        }
+
+        // Select dropdown styling
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px 12px;
+            padding-right: 3rem;
+        }
+
+        // Textarea specific styling
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+        }
+
+        // Character counter
+        .form-text {
+            color: #888888;
+            font-size: 0.875rem;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+            text-align: right;
+        }
+
+        // Error messages
+        .invalid-feedback {
+            color: #ff4444;
+            font-size: 0.875rem;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        // Alert styling
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid transparent;
+            border-radius: 0;
+
+            &.alert-danger {
+                background-color: rgba(255, 68, 68, 0.1);
+                border-color: #ff4444;
+                color: #ff4444;
+            }
+        }
+
+        // Submit button - matching your modal button style
+        .btn-submit {
+            background-color: transparent;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 0;
+
+            &:hover:not(:disabled) {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+                background-color: transparent;
+                color: #ffffff;
+            }
+
+            // Loading state
+            &.loading {
+                position: relative;
+                color: transparent;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid transparent;
+                    border-top: 2px solid #ffffff;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+            }
+        }
+
+        // Cancel button
+        .btn-cancel {
+            background-color: transparent;
+            border: 1px solid #666666;
+            color: #666666;
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            margin-right: 1rem;
+
+            &:hover:not(:disabled) {
+                background-color: #666666;
+                color: #ffffff;
+            }
+        }
+
+        // Button container
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                gap: 0.5rem;
+
+                .btn-cancel,
+                .btn-submit {
+                    width: 100%;
+                    margin-right: 0;
+                }
+            }
+        }
+
+        // Success state
+        .success-content {
+            text-align: center;
+            padding: 2rem 0;
+
+            .success-icon {
+                color: #00ff00;
+                font-size: 4rem;
+                margin-bottom: 1rem;
+            }
+
+            .success-title {
+                color: #ffffff;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                font-weight: 400;
+            }
+
+            .success-message {
+                color: #cccccc;
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            }
+
+            .ticket-id {
+                background-color: #333333;
+                border: 1px solid #666666;
+                padding: 1rem;
+                margin: 1rem 0;
+                font-family: monospace;
+                color: #00ff00;
+                font-size: 1.1rem;
+            }
+
+            .success-note {
+                color: #888888;
+                font-size: 0.875rem;
+                font-style: italic;
+            }
+        }
+
+        // Footer note
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333333;
+            color: #888888;
+            font-size: 0.875rem;
+        }
+    }
+}
+
+// Modal overlay classes - unified styling for both patterns
+.modal-overlay,
+.support-modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); // Darker overlay like your modal
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Loading animation
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+// Additional shared styles for form inputs in both modal types
+.support-modal,
+.modal-content-support-request {
+    // Common input styling
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select,
+    textarea {
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        color: #000000;
+        border-radius: 0;
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+        width: 100%;
+
+        &:focus {
+            background-color: #ffffff;
+            border-color: #666666;
+            box-shadow: none;
+            color: #000000;
+            outline: none;
+        }
+
+        &::placeholder {
+            color: #999999;
+            font-style: italic;
+        }
+    }
+
+    // Common button styling
+    button {
+        border-radius: 0;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+}

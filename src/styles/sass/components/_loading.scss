@@ -1,0 +1,67 @@
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    div.letter {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        svg {
+            width: 100%;
+            height: 100%;
+            path {
+                fill: white;
+            }
+        }
+    }
+    $loadingTime: 2.5s;
+    .letter_N {
+        top: 0;
+        left: 0;
+        animation: letterN $loadingTime infinite ease-in-out;
+        @keyframes letterN {
+            0% { top: 0; left: 0; }
+            25% { top: 0; left: 60%; }
+            50% { top: 50%; left: 60%; }
+            75% { top: 50%; left: 0; }
+            100% { top: 0; left: 0; }
+        }
+    }
+    .letter_Y1 {
+        animation: letterY1 $loadingTime infinite ease-in-out;
+        @keyframes letterY1 {
+            0% { top: 0; left: 60%; }
+            25% { top: 50%; left: 60%; }
+            50% { top: 50%; left: 0; }
+            75% { top: 0; left: 0; }
+            100% { top: 0; left: 60%; }
+        }
+    }
+    .letter_Y2 {
+        animation: letterY2 $loadingTime infinite ease-in-out;
+        @keyframes letterY2 {
+            0% { top: 50%; left: 0; }
+            25% { top: 0; left: 0; }
+            50% { top: 0; left: 60%; }
+            75% { top: 50%; left: 60%; }
+            100% { top: 50%; left: 0; }
+        }
+    }
+    .letter_U {
+        animation: letterU $loadingTime infinite ease-in-out;
+        @keyframes letterU {
+            0% { top: 50%; left: 60%; }
+            25% { top: 50%; left: 0; }
+            50% { top: 0; left: 0; }
+            75% { top: 0; left: 60%; }
+            100% { top: 50%; left: 60%; }
+        }
+    }
+}

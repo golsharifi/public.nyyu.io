@@ -1,0 +1,488 @@
+.auction-page {
+    .menu {
+        border-bottom: 2px solid #464646;
+    }
+    .section-auction {
+        height: calc(100vh - 100px);
+        &__tooltip {
+            margin-top: 2em;
+        }
+        .current-round {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid #464646;
+            @include mq("tablet") {
+                display: none;
+            }
+            h4 {
+                font-weight: bold;
+                font-size: 30px;
+                line-height: 37px;
+                @include mq("phone", max) {
+                    font-size: 24px;
+                    line-height: 29px;
+                }
+            }
+            p {
+                font-size: 18px;
+                line-height: 22px;
+                color: #c4c4c4;
+                span {
+                    font-weight: 500;
+                    color: white;
+                }
+                @include mq("phone", max) {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 17px;
+                    span {
+                        font-weight: bold;
+                    }
+                }
+            }
+            .show-chart {
+                width: 64px;
+                height: 64px;
+                cursor: pointer;
+                @include mq("phone", max) {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        .timeframe-bar {
+            background: linear-gradient(
+                90deg,
+                rgba(35, 200, 101, 1) 0%,
+                rgba(9, 121, 86, 1) 56%,
+                rgba(232, 80, 58, 1) 100%
+            );
+            margin-top: 0;
+            .timeleft {
+                &__value {
+                    font-weight: 500;
+                    font-size: 9px;
+                    line-height: 11px;
+                    bottom: 24px;
+                    right: unset;
+                    color: white;
+                    position: absolute;
+                    display: none;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 21px;
+                    width: 2px;
+                    background: white;
+                    bottom: 0;
+                }
+                &:hover {
+                    .timeleft__value {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .auction-left {
+            padding-right: 1.5rem;
+            @include mq("tablet") {
+                display: block !important;
+            }
+            @include mq("laptop", max) {
+                padding-right: 12px;
+            }
+            @include mq("phone", max) {
+                width: 100%;
+            }
+            .round-tab,
+            .statistics-tab {
+                .react-tabs__tab-list {
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: none;
+                    .react-tabs__tab {
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 17px;
+                        text-transform: uppercase;
+                        color: $grey;
+                        text-align: center;
+                        @include mq("tablet", max) {
+                            font-size: 18px;
+                            line-height: 22px;
+                        }
+                        &--selected {
+                            background: none;
+                            border: none;
+                            border-bottom: 2px solid $green;
+                        }
+                    }
+                }
+            }
+            .round-tab {
+                margin-top: 16px;
+                .react-tabs__tab-list {
+                    .react-tabs__tab {
+                        display: flex;
+                        align-items: center;
+                        font-weight: bold;
+                        font-size: 14px;
+                        line-height: 17px;
+                        padding-left: 0;
+                        padding-right: 0;
+                        width: auto;
+                        &--selected {
+                            font-size: 30px;
+                            line-height: 37px;
+                            letter-spacing: -0.01em;
+                            color: white;
+                            @include mq("phone", max) {
+                                font-size: 24px;
+                                line-height: 29px;
+                            }
+                        }
+                        @include mq("phone", max) {
+                            padding: 0;
+                        }
+                    }
+                }
+                .react-tabs__tab-panel {
+                    color: $grey;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+            }
+        }
+        .auction-right {
+            position: relative;
+            border-left: 2px solid #464646;
+            @include mq("tablet", max) {
+                border-left: none;
+            }
+            .place-bid {
+                margin: 58px 2px 58px 12px;
+                @include mq('laptop', max) {
+                    margin: 58px 0;
+                }
+                @include mq('tablet', max) {
+                    margin: 20px 0;
+                }
+                @include mq('laptop-wide', min) {
+                    margin-left: 100px;
+                }
+            }
+            .chart-area {
+                margin: 0 auto;
+                padding: 40px 0 40px 40px;
+                @include mq("laptop") {
+                    display: none;
+                }
+                @include mq("tablet", max) {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                .select-chart-type {
+                    width: 375px;
+                    @include mq("laptop", max) {
+                        width: 100%;
+                    }
+                }
+                .css-1s2u09g-control,
+                .css-1pahdxg-control {
+                    background: #1e1e1e;
+                    border: 1px solid #ffffff;
+                    border-radius: unset;
+                    box-shadow: unset;
+                    .css-319lph-ValueContainer,
+                    .css-1d8n9bt {
+                        justify-content: start;
+                    }
+                    .css-6j8wv5-Input,
+                    .css-qc6sy-singleValue {
+                        font-family: "Montserrat";
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 24px;
+                        line-height: 29px;
+                        text-align: left;
+                        color: white;
+                        @include mq("phone", max) {
+                        }
+                    }
+                    .css-1okebmr-indicatorSeparator {
+                        display: none;
+                    }
+                }
+                .css-26l3qy-menu {
+                    background-color: $black;
+                    border: 1px solid #ffffff;
+                    border-radius: unset;
+                    color: white;
+                    font-size: 24px;
+                    font-family: "Montserrat";
+                    font-style: normal;
+                    font-weight: bold;
+                    line-height: 29px;
+                    & > div {
+                        max-height: unset !important;
+                        &:hover {
+                            background: unset;
+                        }
+                    }
+                }
+                .select-label {
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 54px;
+                    color: #c4c4c4;
+                    margin: 45px 0 25px;
+                }
+            }
+        }
+    }
+}
+
+.list-part {
+    & > .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        & > * {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+}
+
+.auction-bid-list-content-group {
+    width: 100%;
+    max-height: 239px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.auction-bid-list-content-final {
+    width: 100%;
+}
+
+.place-bid {
+    margin: 0 auto;
+    padding: 31px 41px;
+    border: 1px solid #464646;
+    div.title {
+        font-size: 30px;
+        line-height: 30px;
+        @include mq('laptop-md', max) {
+            font-size: 20px;
+        }
+        @include mq('phone', max) {
+            font-size: 16px;
+        }
+    }
+    @include mq("tablet", max) {
+        padding: 19px 12px;
+    }
+    .range-label {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+        color: white;
+        @include mq("tablet", max) {
+            font-size: 16px;
+        }
+    }
+    .range-input,
+    .total-input {
+        padding: 8px 10px;
+        margin-right: 18px;
+        background: #1e1e1e;
+        border: 1px solid #ffffff;
+        width: 130px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        color: white;
+        text-align: center;
+    }
+    .total-input {
+        width: 100%;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 37px;
+        @include mq("tablet", max) {
+            font-size: 22px;
+        }
+    }
+    .symbol-label {
+        color: $green;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 37px;
+        font-variant: small-caps;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .rc-slider {
+        &-rail {
+            height: 5px;
+            background-color: white;
+        }
+        &-track {
+            height: 5px;
+            background-color: $green;
+        }
+        &-handle {
+            width: 24px;
+            height: 24px;
+            border-color: $green;
+            background-color: $green;
+            margin-top: -10px;
+        }
+    }
+    .tablet-view {
+        display: none;
+        text-align: center;
+        @include mq("tablet", max) {
+            display: block;
+        }
+        .range-label {
+            font-size: 24px;
+            line-height: 29px;
+        }
+        .range-input {
+            width: 100%;
+            padding: 17px;
+            margin-top: 16px;
+            margin-bottom: 25px;
+            &::placeholder {
+                font-size: 14px;
+                line-height: 17px;
+                color: white;
+                opacity: 0.5;
+                text-transform: uppercase;
+            }
+        }
+        .total-input {
+            width: 100%;
+            margin: 0;
+            margin-top: 16px;
+            margin-bottom: 25px;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 37px;
+            color: $green;
+        }
+        .btn-primary {
+            font-size: 30px;
+            line-height: 37px;
+            padding: 8px 44px;
+        }
+    }
+}
+.presale-total-input {
+    width: 100%;
+    padding: 8px 10px;
+    background: #1e1e1e;
+    border: 1px solid #ffffff;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    line-height: 37px;
+}
+
+.destination_wallet {
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    border: 1px solid white;
+    color: white;
+    transition: 0.3s;
+    background-color: transparent;
+    cursor: pointer;
+    opacity: 0.7;
+    .wallet_header {
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .img_div {
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+            width: 50px;
+            height: 50px;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    @include mq('laptop-wide', max) {
+        h4.text-center {
+            font-size: 22px;
+        }
+    }
+    &:hover {
+        border: 1px solid #23c865;
+        opacity: 1;
+    }
+    &:disabled {
+        border: 1px solid;
+        opacity: 0.7;
+    }
+}
+
+.selected_wallet {
+    background-color: $green;
+    opacity: 1;
+    p {
+        color: white!important;
+    }
+}
+
+.wallet_content {
+    min-height: 230px;
+    .col-lg-6 {
+        @include mq('tablet', max) {
+            width: 50%;
+        }
+        @include mq('phone', max) {
+            width: 100%;
+        }
+    }
+    .external_wallet {
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid dimgray;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        p {
+            color: dimgray;
+            transition: 0.3s;
+        }
+        &:hover {
+            border: 1px solid $green;
+            p {
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,1353 @@
+.history-page {
+    .menu {
+        border-bottom: 2px solid #464646;
+    }
+    .section-history {
+        height: calc(100vh - 97px);
+        @include mq("laptop", max) {
+            height: auto;
+        }
+        table {
+            width: 100%;
+            thead,
+            tbody tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            thead {
+                border-bottom: 2px solid #464646;
+                width: 100%;
+                th {
+                    padding: 16px 0;
+                }
+            }
+            th {
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.04em;
+                color: #8f8f8f;
+                font-weight: normal;
+            }
+            td {
+                font-size: 18px;
+                line-height: 22px;
+                color: white;
+            }
+            tbody {
+                @include mq("tablet", max) {
+                    max-height: 350px;
+                }
+                display: block;
+                tr {
+                    border-bottom: 2px solid #464646;
+                    &:hover {
+                        background-color: #242424;
+                    }
+                }
+            }
+            .mobile-not {
+                @include mq("phone", max) {
+                    display: none;
+                }
+            }
+            .laptop-not {
+                @include mq("laptop", max) {
+                    display: none;
+                }
+            }
+        }
+        .coin {
+            &-abbr {
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 22px;
+                letter-spacing: 0.04em;
+            }
+            &-name {
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 18px;
+                letter-spacing: 0.04em;
+                color: #959595;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 100%;
+            }
+            &-price {
+                font-size: 18px;
+                line-height: 22px;
+                color: #ffffff;
+                text-align: right;
+            }
+            &-percent {
+                font-size: 13px;
+                line-height: 18px;
+                text-align: right;
+                margin-top: 3px;
+            }
+            &-status {
+                position: relative;
+                text-indent: 16px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                }
+                &.active {
+                    &::before {
+                        background-color: $green;
+                    }
+                }
+                &.deactive {
+                    &::before {
+                        background-color: $red;
+                    }
+                }
+            }
+            &-reward {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.04em;
+                color: $green;
+            }
+            &-operations {
+                display: flex;
+                justify-content: flex-end;
+                @include mq("laptop", max) {
+                    flex-direction: column;
+                    align-items: flex-end;
+                }
+            }
+        }
+        &__left {
+            @include mq("laptop", min) {
+                height: 100%;
+                padding-right: 1.5rem;
+                border-right: 2px solid #464646;
+            }
+            .profile-value button{
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            table {
+                tbody {
+                    @include custom-scroll(250px);
+                    min-height: 50px;
+                    tr {
+                        td {
+                            padding: 16px 0;
+                        }
+                    }
+                }
+            }
+            .coin {
+                &-percent {
+                    color: #959595;
+                }
+            }
+            .react-tabs {
+                &__tab-list {
+                    border-bottom: 2px solid #464646;
+                    display: flex;
+                    width: 100%;
+                    .react-tabs__tab {
+                        padding: 21px 0 9px;
+                        font-weight: bold;
+                        font-size: 28px;
+                        line-height: 37px;
+                        text-transform: uppercase;
+                        color: $grey;
+                        @include mq("laptop", max) {
+                            font-size: 22px;
+                            width: 50%;
+                            text-align: center;
+                        }
+                        &--selected {
+                            background: none;
+                            border: none;
+                            border-bottom: 2px solid $green;
+                            color: white;
+                        }
+                    }
+                }
+                &__tab-panel {
+                    margin-top: 24px;
+
+                    h5 {
+                        font-weight: bold;
+                        font-size: 18px;
+                        line-height: 22px;
+                        letter-spacing: 0.04em;
+                        text-transform: uppercase;
+                    }
+
+                    .transaction {
+                        border-bottom: 2px solid #464646;
+                        padding: 16px 0;
+                        &-history {
+                            @include custom-scroll(550px);
+                            @include mq("tablet", max) {
+                                max-height: 350px;
+                            }
+                        }
+                        &-date {
+                            font-weight: 500;
+                            font-size: 9px;
+                            line-height: 11px;
+                            letter-spacing: 0.04em;
+                            color: #787878;
+                        }
+                        &-name {
+                            font-weight: 500;
+                            font-size: 15px;
+                            line-height: 18px;
+                            letter-spacing: 0.04em;
+                        }
+                        &-price {
+                            font-weight: bold;
+                            font-size: 15px;
+                            line-height: 18px;
+                            letter-spacing: 0.04em;
+                        }
+                    }
+                }
+            }
+        }
+        &__right {
+            @include mq("laptop", min) {
+                height: 100%;
+                padding-left: 0;
+            }
+            &__scroll{
+                max-height: 100%;
+                overflow-y: auto;
+            }
+            .verify-link {
+                @include mq("laptop", max) {
+                    display: none;
+                }
+            }
+            .tab-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                overflow-x: auto;
+                @include custom-scroll(0vh);
+                @include mq("phone", max) {
+                    display: block;
+                    .react-tabs__tab-list {
+                        padding: 24px 0;
+                    }
+                    .react-tabs__tab {
+                        font-size: 20px;
+                        white-space: nowrap;
+                    }
+                }
+            }
+            .react-tabs {
+                height: 100%;
+                &__tab-list {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 0;
+                    padding: 24px;
+                    width: 100%;
+                    border: none;
+                    @include mq("phone", max) {
+                        justify-content: space-between;
+                    }
+                }
+                &__tab {
+                    font-weight: 700;
+                    font-variant: small-caps;
+                    font-size: 23px;
+                    line-height: 27px;
+                    color: #757575;
+                    &--selected {
+                        background: unset;
+                        color: white;
+                        border: unset;
+                    }
+                }
+                &__tab-panel {
+                    &--selected {
+                        border-top: 2px solid #464646;
+                    }
+                    .airdrop-link {
+                        cursor: pointer;
+                    }
+                }
+
+                .operation-link {
+                    font-size: 18px;
+                    line-height: 22px;
+                    letter-spacing: 0.04em;
+                    color: white;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                    @include mq("tablet", max) {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .connect-external {
+                position: absolute;
+                top: calc(100% - 100px);
+                width: 100%;
+                text-align: center;
+
+                .btn-primary {
+                    font-size: 22px;
+                    line-height: 27px;
+                }
+                @include mq("phone", max) {
+                    top: calc(100% - 24px);
+                    .btn-primary {
+                        font-size: 18px;
+                        line-height: 22px;
+                        padding: 13px 23px;
+                    }
+                }
+            }
+            table {
+                .search {
+                    display: flex;
+                    justify-content: flex-start;
+                    border-bottom: 2px solid #464646;
+                    .search-icon {
+                        margin: 12px;
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                    }
+                    .black_input {
+                        width: initial;
+                        height: 44px;
+                        border: none;
+                    }
+                }
+                thead {
+                    th {
+                        svg {
+                            cursor: pointer;
+                            margin-left: 4px;
+                            &.txt-green {
+                                color: $green;
+                            }
+                        }
+                    }
+                }
+                td {
+                    .loading {
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+                tbody {
+                    min-height: 100px;
+                    tr {
+                        div.star_selected {
+                            cursor: pointer;
+                        }
+                        td {
+                            div.echarts-for-react.echarts-for-echarts {
+                                margin: auto;
+                                height: 50px;
+                                width: 150px;
+                            }
+                            padding-top: 24px;
+                            padding-bottom: 16px;
+                        }
+                    }
+                }
+            }
+            .coin {
+                &-name {
+                    overflow: hidden;
+                    &:hover {
+                        overflow: visible;
+                    }
+                }
+            }
+            .star-checkbox {
+                width: 22px;
+                height: 22px;
+                margin-top: 4px;
+                margin-right: 18px;
+            }
+            .stake-react-list__tab {
+                .react-tabs__tab {
+                    text-transform: capitalize;
+                    font-variant: normal;
+                    font-size: 16px;
+                    line-height: 20px;
+                    font-weight: 500 !important;
+                }
+            }
+        }
+    }
+    .invite-friends-body{
+        @include mq('laptop-md', min) {
+            padding-right: .75rem !important;
+        }
+    }
+}
+
+.deposit-modal {
+    max-width: 800px;
+    min-height: 530px;
+    p {
+        font-size: 14px;
+    }
+    .css-lv2wyh-option {
+        background-color: transparent !important;
+        border-radius: 0 !important;
+    }
+    .css-xmxkze-menu {
+        border-radius: 0 !important;
+    }
+
+    svg.icon {
+        color: white;
+        cursor: pointer;
+        font-size: 32px;
+    }
+
+    .width1 {
+        width: 60%;
+        margin: auto;
+    }
+    .width2 {
+        width: 80%;
+        margin: auto;
+    }
+    .width3 {
+        width: 75%;
+        margin: auto;
+    }
+    .width4 {
+        width: 70%;
+        margin: auto;
+    }
+    @include mq("tablet", max) {
+        .width1,
+        .width2,
+        .width3,
+        .width4 {
+            width: 100%;
+        }
+        width: 100%;
+        overflow: auto;
+        border: none;
+        height: 100vh;
+        padding-top: 50px;
+    }
+    .min_height1 {
+        min-height: 400px;
+    }
+    .min_height2 {
+        min-height: 500px;
+    }
+    div.deposit {
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        @include mq("tablet", max) {
+            width: 100%;
+        }
+        div.button-group {
+            display: flex;
+            justify-content: space-between;
+            button.btn {
+                color: white;
+                border: 1px solid #ffffff;
+                border-radius: 0;
+                width: 49%;
+                height: 40px;
+                @include mq('phone', max) {
+                    font-size: 14px;
+                }
+            }
+            button.selected {
+                color: black;
+                background-color: white;
+            }
+        }
+        div.select_div {
+            margin-top: 10px;
+        }
+        p.subtitle {
+            color: $lightgrey;
+            margin-bottom: 5px;
+        }
+        button.btn {
+            height: 47px;
+        }
+        .black_input {
+            height: 49px;
+        }
+        div.withdraw_amount {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input {
+                width: 88%;
+                background: none;
+                border: none;
+                color: white;
+            }
+            p {
+                width: 50px;
+                span {
+                    color: $green;
+                }
+            }
+        }
+        div.transfer_input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input#transferAmount {
+                background-color: inherit;
+                color: white;
+                border: unset;
+            }
+            div {
+                color: white;
+                margin-left: 5px;
+                margin-right: 5px;
+                span {
+                    color: $green;
+                }
+            }
+            @include mq("phone", max) {
+                input {
+                    width: 95%;
+                }
+                flex-direction: column;
+                height: auto;
+                align-items: flex-start;
+            }
+        }
+        div.usdt_div {
+            display: flex;
+            align-items: center;
+            img {
+                width: 34px;
+            }
+        }
+        div.transfer_data_div {
+            display: flex;
+            p.subtitle {
+                width: 24%;
+            }
+            p.value {
+                svg {
+                    font-size: 24px;
+                    color: $lightgrey;
+                    margin-left: 10px;
+                    cursor: pointer;
+                }
+            }
+            @include mq("phone", max) {
+                flex-direction: column;
+                p.subtitle {
+                    width: 100%;
+                }
+            }
+        }
+        div.address_div {
+            div.clip_div {
+                display: flex;
+                justify-content: space-between;
+                div.clipboard {
+                    width: 82%;
+                    background-color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 10px;
+                    cursor: pointer;
+                    div.address {
+                        width: 90%;
+                        word-wrap: break-word;
+                    }
+                    div.copy_icon {
+                        width: 10%;
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        svg {
+                            font-size: 22px;
+                            color: black;
+                        }
+                    }
+                }
+                div.qr_code {
+                    width: 15%;
+                    img {
+                        display: block;
+                        margin: auto;
+                        width: 100%;
+                    }
+                }
+                @include mq("phone", max) {
+                    flex-direction: column;
+                    div.clipboard {
+                        width: 100%;
+                        div.address {
+                            font-size: 11px;
+                        }
+                    }
+                    div.qr_code {
+                        margin: auto;
+                        width: 20%;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+        div.stats_div {
+            margin-top: 50px;
+            div.stats {
+                padding-top: 10px;
+                display: flex;
+                .topic {
+                    width: 40%;
+                    color: dimgray;
+                }
+                .content {
+                    width: 60%;
+                    display: flex;
+                    justify-content: flex-end;
+                    color: white;
+                    p.time {
+                        font-size: 24px;
+                        width: 34px;
+                    }
+                    .time-text {
+                        font-size: 12px;
+                    }
+                }
+                @include mq("phone", max) {
+                    flex-direction: column;
+                    .topic,
+                    .content {
+                        width: 100%;
+                        word-break: break-all;
+                    }
+                }
+            }
+            hr {
+                color: white;
+                margin-top: 25px;
+            }
+        }
+        div.confirm_div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px;
+            div.react-code-input {
+                input {
+                    width: 50px !important;
+                    height: 65px !important;
+                    margin: 10px !important;
+                    padding: 0!important;
+                    text-align: center;
+                }
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                @include mq('phone', max) {
+                    input {
+                        width: 40px !important;
+                        height: 55px !important;
+                        margin: 5px !important;
+                    }
+                }
+            }
+        }
+    }
+    .connect-wallet {
+        min-height: 360px;
+        text-align: center;
+        color: white;
+        .row {
+            margin-top: 40px;
+            @include mq("laptop", max) {
+                margin-top: 24px;
+            }
+            .connected {
+                border: 1px solid #23c865;
+                padding: 10px;
+                p {
+                    color: #23c865;
+                    margin: 10px 0;
+                    word-break: break-all;
+                }
+                img {
+                    margin: 25px 0;
+                    width: 70px;
+                }
+            }
+        }
+        .col-sm-6 {
+            margin-bottom: 16px;
+        }
+        .wallet-item {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border: 2px solid white;
+            img {
+                margin-bottom: 16px;
+                width: 50px;
+                height: 50px;
+                @include mq("phone", max) {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+            p {
+                font-size: 13px;
+                line-height: 20px;
+                color: white;
+            }
+            &.inactive {
+                border-color: grey;
+                p {
+                    color: grey;
+                }
+                img {
+                    opacity: 0.5;
+                }
+            }
+        }
+        .btn-primary {
+            margin-top: 35px;
+            font-size: 24px;
+            line-height: 29px;
+            padding: 7px 92px;
+            @include mq("laptop", max) {
+                margin-top: 24px;
+            }
+            @include mq("phone", max) {
+                width: 100%;
+            }
+        }
+    }
+    .bankDetail {
+        height: 460px;
+        overflow-y: auto;
+        @include mq('phone', max) {
+            height: 100vh;
+        }
+        &>div {
+            width: 97%;
+        }
+    }
+}
+
+.airdrop-detail {
+    display: none;
+    width: 100%;
+    height: 100%;
+    &__left {
+        padding: 16px;
+        border-right: 2px solid #464646;
+        @include mq("tablet", max) {
+            border: none;
+        }
+        .detail-header {
+            display: flex;
+            align-items: center;
+            background: #242424;
+            padding: 14px 16px;
+            &__icon {
+                width: 35.5px;
+                height: 35.5px;
+                margin-right: 12px;
+                @include mq("phone", max) {
+                    width: 23px;
+                    height: 23px;
+                }
+            }
+            &__name {
+                font-weight: bold;
+                font-size: 22px;
+                line-height: 27px;
+                letter-spacing: 0.04em;
+                color: white;
+                @include mq("phone", max) {
+                    font-size: 14px;
+                    line-height: 17px;
+                }
+            }
+            &__end {
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 17px;
+                letter-spacing: 0.04em;
+                color: #757575;
+                @include mq("phone", max) {
+                    display: none;
+                }
+            }
+        }
+        .detail-body {
+            margin-top: 16px;
+            li {
+                display: flex;
+                justify-content: space-between;
+                padding: 14px;
+                border-bottom: 2px solid #464646;
+                p {
+                    color: #959595;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 17px;
+                }
+                .value {
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 22px;
+                    letter-spacing: 0.04em;
+                    color: #ffffff;
+                }
+            }
+        }
+        .detail-footer {
+            margin-top: 16px;
+            padding: 14px 16px;
+            h6 {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.04em;
+                color: white;
+                margin-bottom: 16px;
+            }
+            ul {
+                list-style: disc;
+                li {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 15px;
+                    letter-spacing: 0.04em;
+                    color: #787878;
+                    padding-bottom: 16px;
+                    list-style-position: outside;
+                    line-break: anywhere;
+                }
+            }
+        }
+    }
+    &__right {
+        padding: 16px;
+        .time-remaining {
+            background: #242424;
+            text-align: center;
+            h5 {
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 22px;
+                text-align: center;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+            }
+            .countdown-wrapper {
+                margin: 16px 0;
+                .time {
+                    font-size: 48px;
+                    line-height: 59px;
+                    &-text {
+                        font-size: 9.3198px;
+                        line-height: 11px;
+                    }
+                }
+            }
+            .btn-primary {
+                background: #1e1e1e;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 14.6601px;
+                line-height: 18px;
+                letter-spacing: 0.04em;
+                @include mq("phone", max) {
+                    padding: 12px 40px;
+                }
+            }
+        }
+        .about-company {
+            margin-top: 16px;
+            padding: 22px 19px;
+            background-color: #242424;
+            h6 {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+                letter-spacing: 0.04em;
+            }
+            p {
+                font-size: 14px;
+                line-height: 17px;
+                letter-spacing: 0.04em;
+            }
+            @include mq("phone", max) {
+                display: none;
+            }
+        }
+    }
+    .read-more {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: 0.04em;
+        color: #ffffff;
+    }
+}
+
+.airdrop-modal {
+    border: 2px solid #464646;
+    max-width: 859px;
+    @include mq("phone", max) {
+        display: none;
+    }
+    &__overlay {
+        @include mq("laptop") {
+            display: none;
+        }
+        @include mq("phone", max) {
+            display: none;
+        }
+    }
+}
+
+.join-modal {
+    max-width: 612px;
+    .join-airdrop {
+        .join-list {
+            li {
+                padding: 14px 0;
+                border-bottom: 2px solid #464646;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                @include mq("phone", max) {
+                    flex-direction: column;
+                    p {
+                        margin-bottom: 13px;
+                    }
+                }
+                p {
+                    font-size: 14px;
+                    line-height: 17px;
+                    color: #f2f2f2;
+                }
+                .btn-green {
+                    border: 1px solid #ffffff;
+                    font-size: 12px;
+                    line-height: 15px;
+                    width: 205px;
+                    padding: 10px 0;
+                }
+            }
+        }
+        .form-label {
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.04em;
+            color: #f2f2f2;
+        }
+        .btn-primary {
+            font-size: 14.6601px;
+            line-height: 18px;
+            padding: 12px 40px;
+        }
+    }
+}
+
+.deposit-widthdraw-modal {
+    max-width: 600px;
+    background-color: $black;
+    border: none;
+    .duplicate-icon {
+        width: 24px;
+        height: 24px;
+    }
+    .border-1-white {
+        border: 1px solid white;
+    }
+}
+
+.wallet-transaction-table {
+    .bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+    }
+    td,
+    th {
+        padding: 10px 0;
+        height: 70px;
+    }
+}
+
+.wallet-referral-tab {
+    .title {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        letter-spacing: -0.025em;
+    }
+    .subtitle {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 30px;
+        letter-spacing: -0.01em;
+    }
+    .rewards-box {
+        background-color: #242424;
+        padding: 20px;
+        margin-top: 23px;
+        margin-bottom: 15px;
+        .label {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 20px;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+            opacity: 0.4;
+        }
+        .value {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 20px;
+            letter-spacing: -0.01em;
+            margin-top: 10px;
+        }
+    }
+    .duplicate-icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover {
+            color: lightgrey !important;
+        }
+    }
+    .btn-invite {
+        font-size: 24px;
+        padding: 10px 60px;
+        margin-top: 50px;
+    }
+}
+
+.stake-duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    & > div {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 6px 8px;
+        cursor: pointer;
+    }
+    .active-duration {
+        border: 2px solid $green;
+    }
+}
+.clock-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.circle-light {
+    width: 12px;
+    height: 12px;
+    background-color: #c4c4c4;
+    border-radius: 50%;
+    @include mq("phone") {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.profile-value {
+    .value-box {
+        background: rgba(43, 43, 43, 0.5);
+    }
+    .value-label {
+        font-size: 17px;
+        color: #5e5e5e;
+        .value-label-eye-icon {
+            width: 22px;
+            height: 22px;
+            color: #666666;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: 500ms;
+            &:hover {
+                color: #5e5e5e;
+            }
+        }
+    }
+    .value {
+        font-size: 30px;
+        line-height: 54px;
+    }
+    .max-value {
+        font-size: 15px;
+        line-height: 18px;
+        color: #959595;
+    }
+}
+
+div.wallet_balances {
+    img.balance_img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.bid-activity {
+    @include custom-scroll(250px);
+    li {
+        padding: 19px 0;
+        border-bottom: 1px solid $green;
+    }
+    .bid {
+        &-name {
+            font-size: 13px;
+            line-height: 16px;
+            color: white;
+        }
+        &-date {
+            font-size: 10px;
+            line-height: 12px;
+            color: #8e8e8e;
+        }
+        &-price {
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+            letter-spacing: 0.01em;
+            color: white;
+        }
+    }
+}
+
+.green-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: $green;
+}
+.gray-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: $dimgrey;
+}
+.red-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: $cinnabar;
+}
+
+.transaction-tab {
+    &-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: auto;
+        @include custom-scroll(0vh);
+        button {
+            &:first-child {
+                border-left: none !important;
+            }
+            &:last-child {
+                border-right: none !important;
+            }
+            &.btn-outline-secondary {
+                border: 1px solid $dimgrey;
+            }
+        }
+    }
+    .date-title {
+        color: #6d6d6d;
+        font-weight: 500;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .transaction-section-tables {
+        // max-height: 300px !important;
+        min-height: 300px;
+        @include custom-scroll(0vh);
+    }
+    .css-1s2u09g-control,
+    .css-1pahdxg-control {
+        font-family: "Montserrat" !important;
+        width: 150px;
+        background: $black;
+        border: 1px solid gray;
+        border-radius: 0px;
+        box-shadow: none !important;
+        .css-qc6sy-singleValue {
+            font-size: 14px;
+            color: white;
+            font-family: "Montserrat" !important;
+        }
+        &:hover {
+            border: 1px solid gray;
+        }
+    }
+    .css-26l3qy-menu {
+        font-family: "Montserrat" !important;
+        color: white;
+        background-color: $black !important;
+        font-size: 14px;
+        .css-1n7v3ny-option {
+            background-color: #464646;
+        }
+        .css-9gakcf-option {
+            background-color: black;
+        }
+    }
+    .start-date-picker {
+        border-radius: 10px;
+        padding: 5px 10px;
+        background-color: $black !important;
+        color: white;
+        font-size: 12px;
+        letter-spacing: 1px;
+        width: 140px;
+        border: 1px solid #464646;
+        &:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            outline-width: 0;
+        }
+        &::placeholder {
+            color: #fff;
+            opacity: 1;
+        }
+        &:-ms-input-placeholder {
+            color: #fff;
+        }
+        &::-ms-input-placeholder {
+            color: #fff;
+        }
+    }
+    .date_pickers {
+        & > div {
+            width: auto;
+            @include mq('phone', max) {
+                width: 90%;
+            }
+        }
+    }
+    .download_icon {
+        font-size: 30px;
+        &:hover {
+            color: $green;
+        }
+    }
+}
+
+.DayPicker {
+    background-color: black;
+    color: white;
+    font-weight: lighter;
+    .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+        background-color: $green;
+        color: white;
+        &:hover {
+            background-color: #6d6d6d;
+        }
+    }
+    .DayPicker-Day--today {
+        color: white;
+        font-weight: lighter;
+    }
+    .DayPicker-Day {
+        transition: 500ms;
+        padding: 7px 7px !important;
+        line-height: 20px !important;
+        &:hover {
+            background-color: #6d6d6d !important;
+        }
+    }
+    .DayPicker-Day--disabled {
+        color: #4d4d4d !important;
+        font-weight: normal !important;
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+}
+
+.DayPickerInput {
+    input {
+        border-radius: 10px;
+        padding: 5px 10px;
+        background-color: $black !important;
+        color: white !important;
+        font-size: 12px;
+        letter-spacing: 1px;
+        width: 140px;
+        border: 1px solid #464646;
+        &:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            outline-width: 0;
+        }
+        &::placeholder {
+            color: #fff;
+            opacity: 1;
+        }
+        &:-ms-input-placeholder {
+            color: #fff;
+        }
+        &::-ms-input-placeholder {
+            color: #fff;
+        }
+    }
+}
+
+span.download-visible {
+    visibility: visible;
+    img {
+        margin-bottom: 4px;
+    }
+}
+
+span.download-hidden {
+    visibility: hidden;
+    img {
+        margin-bottom: 4px;
+    }
+}
