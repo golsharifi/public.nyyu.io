@@ -1,0 +1,65 @@
+/* Avatar Container Styles */
+.avatar-container {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+
+.header-avatar-user-tier {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+    border-radius: 50%;
+    background: white;
+    padding: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-avatar-user-tier svg {
+    width: 100%;
+    height: 100%;
+}
+
+.avatar-fallback {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border: 2px solid #ccc;
+}
+
+.avatar-fallback:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .avatar-container,
+    .user-avatar,
+    .avatar-fallback {
+        width: 35px;
+        height: 35px;
+    }
+
+    .header-avatar-user-tier {
+        width: 18px;
+        height: 18px;
+        bottom: -3px;
+        right: -3px;
+    }
+}

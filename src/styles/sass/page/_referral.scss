@@ -1,0 +1,63 @@
+div.bg-gray-50 {
+    background-color: rgba(43, 43, 43, 0.5);
+}
+
+.share {
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    padding: 17px;
+    transition: background-color .15s ease-in-out;
+    &:hover {
+        background-color: #2ad76f;
+    }
+}
+
+.border-response {
+    border-right: 2px solid #464646;
+    @include mq("laptop", max) {
+        border-right: unset;
+    }
+}
+
+.text-transparent {
+    color: $transparent;
+}
+
+.level-up {
+    color: #626161;
+}
+
+.referral-history {
+    height: 100vh;
+    @include mq("tablet", max) {
+        height: auto;
+    }
+}
+
+.referral-history-list {
+    height: 100vh;
+    @include mq("tablet", max) {
+        height: auto;
+    }
+}
+
+.referral-button {
+    width: 100%;
+    @include mq("laptop") {
+        width: 360px;
+        height: 56px;
+    }
+}
+
+.referral-wallet {
+    margin-bottom: 40px;
+}
+
+.social-link:hover {
+    opacity: 1;
+}
+
+.social-link {
+    opacity: 0.3;
+}

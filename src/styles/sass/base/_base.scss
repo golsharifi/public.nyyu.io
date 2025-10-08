@@ -1,0 +1,456 @@
+@use "sass:math";
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    background-color: $black !important;
+    main {
+        @extend %set-height;
+        overflow-x: hidden !important;
+        overflow-y: auto;
+    }
+}
+
+a,
+button,
+.btn {
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.z-999 {
+    z-index: 999 !important;
+}
+.z-n999 {
+    z-index: -999 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+.border-transparent {
+    border-color: transparent !important;
+}
+.border-cyan {
+    border-color: cyan !important;
+}
+.border-grey {
+    border-color: grey !important;
+}
+.overflow-x-auto {
+    overflow-x: auto !important;
+    white-space: nowrap;
+}
+.overflow-y-hidden {
+    overflow-y: hidden !important;
+}
+
+.btn-primary {
+    transition: 500ms;
+    &:hover {
+        opacity: 0.65;
+    }
+}
+
+.bg-clip-unset {
+    background-clip: unset !important;
+}
+
+.hover\:txt-green {
+    transition: 500ms;
+    &:hover {
+        color: $green;
+    }
+}
+
+.password-eye-icon {
+    position: absolute;
+    color: rgb(179, 178, 178);
+    width: 20px;
+    height: 20px;
+    top: 38.5px;
+    right: 10px;
+    transition: 500ms;
+    cursor: pointer;
+    &:hover {
+        color: $black;
+    }
+}
+
+.placeholder\:text-light {
+    &::placeholder {
+        color: #e3e3e3 !important;
+    }
+}
+.placeholder\:text-lightgray {
+    &::placeholder {
+        color: lightgray;
+    }
+}
+
+@for $size from 4 to 100 {
+    .py-#{$size}px {
+        padding-top: #{$size}px !important;
+        padding-bottom: #{$size}px !important;
+    }
+}
+
+@for $size from 4 to 96 {
+    .px-#{$size}px {
+        padding-left: #{$size}px !important;
+        padding-right: #{$size}px !important;
+    }
+}
+
+@for $size from 4 to 96 {
+    .ml-#{$size}px {
+        margin-left: #{$size}px !important;
+    }
+}
+
+@for $size from 4 to 96 {
+    .mr-#{$size}px {
+        margin-right: #{$size}px !important;
+    }
+}
+
+@for $size from 3 to 96 {
+    .mt-#{$size}px {
+        margin-top: #{$size}px !important;
+    }
+}
+
+@for $size from 4 to 96 {
+    .mb-#{$size}px {
+        margin-bottom: #{$size}px !important;
+    }
+}
+
+.mt-1 {
+    margin-top: 1px !important;
+}
+
+@for $size from 0 to 96 {
+    .pt-#{$size}px {
+        padding-top: #{$size}px !important;
+    }
+}
+
+@for $size from 0 to 96 {
+    .pb-#{$size}px {
+        padding-bottom: #{$size}px !important;
+    }
+}
+
+@for $size from 0 to 96 {
+    .pl-#{$size}px {
+        padding-left: #{$size}px !important;
+    }
+}
+
+@for $size from 4 to 96 {
+    .pr-#{$size}px {
+        padding-right: #{$size}px !important;
+    }
+}
+
+.hover\:bg-dark {
+    transition: 500ms;
+    &:hover {
+        background-color: #151515 !important;
+    }
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+@for $size from 8 to 500 {
+    .w-#{$size}px {
+        width: #{$size}px !important;
+    }
+}
+
+// Font Sizes
+@for $size from 8 to 96 {
+    .fs-#{$size}px {
+        font-size: #{$size}px !important;
+    }
+}
+
+// Line Heights
+@for $size from 12 to 96 {
+    .lh-#{$size}px {
+        line-height: #{$size}px !important;
+    }
+}
+
+@for $size from 0 to 72 {
+    .ls-#{$size}px {
+        letter-spacing: #{$size}px !important;
+    }
+}
+
+@for $size from 3 through 7 {
+    $size: $size * 100;
+    .fw-#{$size} {
+        font-weight: #{$size} !important;
+    }
+}
+
+@for $value from 0 through 100 {
+    .opacity-#{$value} {
+        opacity: #{math.div($value, 100)} !important;
+    }
+}
+
+.scale-75 {
+    transform: scale(0.75, 0.75);
+    @include mq("phone", min) {
+        transform: scale(1, 1);
+    }
+}
+.border-bottom-1px {
+    border-bottom: 1px !important;
+}
+
+.border-bottom-scorpion {
+    border-bottom: 1px solid $scorpion !important;
+}
+
+.border-bottom-2-dark-gray:not(:first-of-type) {
+    border-top: 2px solid $dimgrey;
+}
+
+.border-bottom-2-dark-gray:last-of-type {
+    border-bottom: 2px solid $dimgrey;
+}
+
+.border-cinnabar {
+    border: 1px solid $cinnabar;
+}
+
+.border-mountainMeadow {
+    border: 1px solid $mountainMeadow;
+}
+.border-white {
+    border: 1px solid $white;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+.fw-700 {
+    font-weight: 700 !important;
+}
+.lh-25px {
+    line-height: 25px !important;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+// End: New Font Sizes
+
+//Begin: Backgourn Color
+.bg-green {
+    background: $green;
+}
+.bg-red {
+    background: #e8503a;
+}
+.bg-gray {
+    background: $grey;
+}
+
+//End: Background Color
+
+.scale-70 {
+    transform: scale(0.7, 0.7);
+}
+
+.bg-black-10 {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.first-letter\:txt-green {
+    color: white !important;
+    &::first-letter {
+        color: $green !important;
+    }
+}
+
+.w-sm-100 {
+    @include mq("phone") {
+        width: 100% !important;
+    }
+}
+
+.white-space-nowrap {
+    white-space: nowrap !important;
+}
+
+.hover\:shadow-light {
+    transition: 500ms;
+    &:hover {
+        box-shadow: 0 0 8px lightgrey;
+    }
+}
+.hover\:scale-125 {
+    transition: 500ms;
+    &:hover {
+        transform: scale(1.25);
+    }
+}
+
+.text-underline {
+    text-decoration: underline !important;
+}
+
+.icon-23px {
+    width: 23px;
+    height: 23px;
+}
+
+.text-\[\#959595\] {
+    color: #959595;
+}
+
+.text-light-blue {
+    color: #59d8f3 !important;
+}
+
+.text-lightgrey {
+    color: lightgrey !important;
+}
+
+.text-hover-green {
+    &:hover {
+        color: $green !important;
+    }
+}
+
+.vh-50 {
+    height: 50vh;
+}
+
+.vh-85 {
+    height: 85vh !important;
+}
+
+.txt-green {
+    color: $green!important;
+}
+.txt-grey {
+    color: $grey;
+}
+.txt-red {
+    color: $red;
+}
+.txt-light-red {
+    color: $light-red;
+}
+.txt-cyan {
+    color: $cyan;
+}
+.txt-scorpion {
+    color: $scorpion;
+}
+.txt-cinnabar {
+    color: $cinnabar;
+}
+.txt-baseprice {
+    color: $priceGray;
+}
+.txt-mountainMeadow {
+    color: $mountainMeadow;
+}
+.txt-dustGray {
+    color: $dustGray;
+}
+
+.txt-disable-gray {
+    color: $disableGray;
+}
+
+.text-blue {
+    color: #59d8f3;
+}
+
+.text-gray {
+    color: #8f8f8f;
+}
+
+.top-0px {
+    top: 0 !important;
+}
+
+.left-0px {
+    left: 0 !important;
+}
+
+.icon-sm {
+    width: 15px;
+    height: 15px;
+}
+
+.form-check-input {
+    border: 1px solid #ffffff;
+    background-color: $black;
+    width: 24px;
+    height: 24px;
+    border-radius: unset;
+}
+.form-check-label {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+.form-check-input:checked {
+    background-color: $black;
+    border-color: white;
+}
+
+.font-30px {
+    font-size: 30px!important;
+}
+
+.font-14px {
+    font-size:  14px!important;
+}
+
+.container{
+    width: initial;
+    max-width: initial;
+    @include mq("laptop", min) {
+        margin-left: .75rem;
+        margin-right: .75rem;
+    }
+    @include mq("laptop-wide", min) {
+        margin-left: 102px;
+        margin-right: 102px;
+    }
+}
